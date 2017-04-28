@@ -121,11 +121,13 @@ module.exports = (function() {
         addSession: function(req, res){
           console.log(req.body);
           var newSesh = new Session(req.body)
-          newSesh.save(function(err,data){
+          newSesh.save(function(err){
             if(err){
               console.log(err);
+              res.sendStatus(400)
             } else {
-              res.sendStatus(200)
+              console.log(newSesh);
+              res.json(newSesh)
             }
           })
         },
