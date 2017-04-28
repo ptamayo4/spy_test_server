@@ -40,4 +40,8 @@ module.exports = function(app) {
       tasks.addGuestToGame(req,res)
     })
 
+    app.post('/getSessionStatus', function(req,res){
+      tasks.getSessionStatus(req,res)
+    })
+
 };

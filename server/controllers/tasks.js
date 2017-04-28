@@ -128,6 +128,18 @@ module.exports = (function() {
               res.sendStatus(200)
             }
           })
+        },
+
+        getSessionStatus: function(req,res){
+          console.log(req.body);
+          Session.find({_id:req.body.id}, function(err,data){
+            if(data != null ){
+              res.json(data)
+            } else {
+              console.log(err);
+              res.sendStatus(400)
+            }
+          })
         }
 
 
