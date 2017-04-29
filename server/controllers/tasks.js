@@ -134,7 +134,7 @@ module.exports = (function() {
 
         getSessionStatus: function(req,res){
           console.log(req.body);
-          Session.find({_id:req.body.id}, function(err,data){
+          Session.findOne({_id:req.body.id}, function(err,data){
             if(data != null ){
               res.json(data)
             } else {
