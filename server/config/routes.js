@@ -44,4 +44,12 @@ module.exports = function(app) {
       tasks.getSessionStatus(req,res)
     })
 
+    app.post('/hostButtonPressed', function(req,res){
+      tasks.hostButtonPressed(req,res)
+    })
+
+    app.post('/guestButtonPressed', function(req,res){
+      tasks.guestButtonPressed(req,res)
+    })
+
 };

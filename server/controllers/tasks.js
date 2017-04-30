@@ -142,7 +142,43 @@ module.exports = (function() {
               res.sendStatus(400)
             }
           })
-        }
+        },
+
+        hostButtonPressed: function(req,res){
+          Session.findOne({_id:req.body.id}, function(err, foundGame){
+            if (err){
+              console.log(err);
+            } else {
+              foundGame.hostButtonTime = req.body.time;
+              foundGame.save(function(err,data){
+                if(err){
+                  console.log(err);
+                  res.sendStatus(400)
+                } else {
+                  res.sendStatus(200)
+                }
+              })
+            }
+          })
+        },
+
+        guestButtonPressed: function(req,res){
+          Session.findOne({_id:req.body.id}, function(err, foundGame){
+            if (err){
+              console.log(err);
+            } else {
+              foundGame.guestButtonTime = req.body.time;
+              foundGame.save(function(err,data){
+                if(err){
+                  console.log(err);
+                  res.sendStatus(400)
+                } else {
+                  res.sendStatus(200)
+                }
+              })
+            }
+          })
+        },
 
 
 
